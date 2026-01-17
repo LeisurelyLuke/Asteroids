@@ -36,16 +36,16 @@ def main():
         clock.tick(60)
         dt = clock.tick(60) / 1000  # Delta time in seconds.
         updatable.update(dt)
-        for ast in asteroids:
-            if ast.collides_with(player):
+        for asteroid in asteroids:
+            if asteroid.collides_with(player):
                 log_event("player_hit")
                 print("Game over!")
                 sys.exit()
-            for sht in shots:
-                if sht.collides_with(ast):
+            for shot in shots:
+                if shot.collides_with(asteroid):
                     log_event("asteroid_shot")
-                    sht.kill()
-                    ast.kill()
+                    shot.kill()
+                    asteroid.kill()
 
 
         for i in drawable:
